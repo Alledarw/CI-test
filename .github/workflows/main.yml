@@ -16,7 +16,5 @@ jobs:
           node-version: 16.x
       - name: Change directory to project
         run: cd my-app
-      - name: Install dependencies
-        run: npm install
       - name: Run tests
         run: npm test
