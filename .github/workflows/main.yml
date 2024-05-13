@@ -1,11 +1,14 @@
-name: Checkout on Push
+name: Checkout with failing step (for testing)
 
 on:
   push:
     branches: [ "*" ]
 
 jobs:
-  checkout:
+  checkout_and_fail:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - name: This step will always fail (for testing)
+        run: exit 1  # Exiting with non-zero code indicates failure
+
