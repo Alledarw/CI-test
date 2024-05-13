@@ -15,7 +15,7 @@ jobs:
         with:
           node-version: 16.x
       - name: Change directory to project
-        run: cd my-app
+        run: cd VScodiumProjects/CI-test/my-app
       - name: Install dependencies
         run: npm install
       - name: Run tests
