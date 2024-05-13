@@ -1,14 +1,21 @@
-name: Checkout with failing step (for testing)
+name: CI
 
 on:
   push:
-    branches: [ "*" ]
+    branches: [ main ]
 
 jobs:
-  checkout_and_fail:
+  build:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v3
-      - name: This step will always fail (for testing)
-        run: exit 1  # Exiting with non-zero code indicates failure
+      - name: Use Node.js 16.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+      - name: Install dependencies
+        run: npm install
+      - name: Run tests
+        run: npm test
 
